@@ -11,13 +11,13 @@ type UserResType = {
 
 const formatUser = (user: UserResType) => {
   return (
-    <div key={user.id} className='main'>
-      <div>{user.userId}</div>
-      <div>{user.id}</div>
-      <div>{user.title}</div>
-      <div>{user.completed ? 'True' : 'False'}</div>
+    <ul key={user.id} className='main'>
+      <li><div>{user.userId}</div></li>
+      <li><div>{user.id}</div></li>
+      <li><div>{user.title}</div></li>
+      <li><div>{user.completed ? 'True' : 'False'}</div></li>
       <br />
-    </div>
+    </ul>
   )
 }
 
@@ -32,6 +32,7 @@ const formatUser = (user: UserResType) => {
 
 function App() {
   const [res, setRes] = useState<UserResType[] | null>(null);
+  const [search, setSearch] = useState('');
 
   const getUsers = async () => {
     fetch('https://jsonplaceholder.typicode.com/todos')
@@ -47,7 +48,8 @@ function App() {
   
   return (
     <>
-      
+      <input type="number" value={search} onChange={(e) => {setSearch(e.currentTarget.value)}}/>
+
       {res ? res.map((v) => formatUser(v)) : null}
 
     </>
