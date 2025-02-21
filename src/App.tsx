@@ -1,29 +1,35 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
 
 type UserResType = {
   id: number,
-  email: string,
+  userId: number,
+  title: string,
+  completed: boolean,
+
 }
 
 const formatUser = (user: UserResType) => {
   return (
     <div key={user.id}>
-      <div>{user.email}</div>
+      <div>{user.userId}</div>
       <div>{user.id}</div>
+      <div>{user.title}</div>
+      <div>{user.completed}</div>
+      <br />
     </div>
   )
 }
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const [res, setRes] = useState<UserResType[] | null>(null);
 
-  const buttonClick = () => {
-    setCount((c) => c + 1)
-  }
+  // const buttonClick = () => {
+  //   setCount((c) => c + 1)
+  // }
 
   const getUsers = async () => {
     fetch('https://jsonplaceholder.typicode.com/todos')
@@ -43,7 +49,7 @@ function App() {
 
   return (
     <>
-      <div>
+      {/* <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -51,9 +57,10 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Vite + React</h1> */}
       {res ? res.map((v) => formatUser(v)) : null}
-      <div className="card"></div>
+      
+      {/* <div className="card"></div>
         <button onClick={buttonClick}>
           count is {count}
         </button>
@@ -62,7 +69,7 @@ function App() {
         </p>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
     </>
   )
 }
