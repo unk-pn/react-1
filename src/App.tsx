@@ -11,7 +11,7 @@ type UserResType = {
 
 const formatUser = (user: UserResType) => {
   return (
-    <div key={user.id}>
+    <div key={user.id} className='main'>
       <div>{user.userId}</div>
       <div>{user.id}</div>
       <div>{user.title}</div>
@@ -21,6 +21,15 @@ const formatUser = (user: UserResType) => {
   )
 }
 
+
+// Дескриптор пример 
+// function a<T>(arg: T): { response: T} {
+//   const b = {
+//     response: arg
+//   }
+//   return b;
+// }
+
 function App() {
   const [res, setRes] = useState<UserResType[] | null>(null);
 
@@ -28,18 +37,14 @@ function App() {
     fetch('https://jsonplaceholder.typicode.com/todos')
     .then((res) => res.json())
     .catch(() => new Promise((resolve) => {resolve({ a: 1 })}))
-    .then((data) => setRes(data))
+    .then((data) => setRes(data.slice(0, 5)))
     .finally(() => {})
-    
   }
-
-  
 
   useEffect(() => {
     getUsers();
   }, [])
   
-
   return (
     <>
       
