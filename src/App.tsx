@@ -23,12 +23,10 @@ function App() {
 
   const buttonClick = () => {
     setCount((c) => c + 1)
-    setCount((c) => c + 1)
-    setCount((c) => c + 1)
   }
 
   const getUsers = async () => {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://jsonplaceholder.typicode.com/todos')
     .then((res) => res.json())
     .catch(() => new Promise((resolve) => {resolve({ a: 1 })}))
     .then((data) => setRes(data))
