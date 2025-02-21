@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css'
 
 type UserResType = {
@@ -17,19 +15,14 @@ const formatUser = (user: UserResType) => {
       <div>{user.userId}</div>
       <div>{user.id}</div>
       <div>{user.title}</div>
-      <div>{user.completed}</div>
+      <div>{user.completed ? 'True' : 'False'}</div>
       <br />
     </div>
   )
 }
 
 function App() {
-  // const [count, setCount] = useState(0);
   const [res, setRes] = useState<UserResType[] | null>(null);
-
-  // const buttonClick = () => {
-  //   setCount((c) => c + 1)
-  // }
 
   const getUsers = async () => {
     fetch('https://jsonplaceholder.typicode.com/todos')
@@ -49,27 +42,9 @@ function App() {
 
   return (
     <>
-      {/* <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1> */}
-      {res ? res.map((v) => formatUser(v)) : null}
       
-      {/* <div className="card"></div>
-        <button onClick={buttonClick}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p> */}
+      {res ? res.map((v) => formatUser(v)) : null}
+
     </>
   )
 }
