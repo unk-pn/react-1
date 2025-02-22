@@ -21,7 +21,6 @@ const formatUser = (user: UserResType) => {
   )
 }
 
-
 // Дескриптор пример 
 // function a<T>(arg: T): { response: T} {
 //   const b = {
