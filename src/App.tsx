@@ -1,3 +1,11 @@
+// Дескриптор пример 
+// function a<T>(arg: T): { response: T} {
+//   const b = {
+//     response: arg
+//   }
+//   return b;
+// }
+
 import { useEffect, useState } from 'react'
 import './App.css'
 
@@ -10,23 +18,20 @@ type UserResType = {
 
 const formatUser = (user: UserResType) => {
   return (
-    <ul key={user.id} className='main'>
-      <li><div>{user.userId}</div></li>
-      <li><div>{user.id}</div></li>
+    <ul
+    key={user.id}
+    className='main'
+    style={{backgroundColor: user.completed ? '#B9CEAC' : '#AB4E52'}}
+    >
+      {/* <li><div>{user.userId}</div></li> */}
+      {/* <li><div>{user.id}</div></li> */}
       <li><div>{user.title}</div></li>
-      <li><div>{user.completed ? 'True' : 'False'}</div></li>
+      {/* <li><div>{user.completed ? 'True' : 'False'}</div></li> */}
       <br />
     </ul>
   )
 }
 
-// Дескриптор пример 
-// function a<T>(arg: T): { response: T} {
-//   const b = {
-//     response: arg
-//   }
-//   return b;
-// }
 
 function App() {
   const [res, setRes] = useState<UserResType[]>([]);
@@ -52,8 +57,9 @@ function App() {
         placeholder='Enter user ID'
         value={search}
         onChange={(e) => {setSearch(e.target.value)}}
+        className='main-input'
       />
-      <div>
+      <div className='notes'>
         {filteredUsers.length > 0 ? (filteredUsers.map(formatUser)) : <p>No users found</p>}
       </div>
     </>

@@ -79,3 +79,13 @@ ul {
   flex-direction: row;
   gap: 20px;
 }
+
+.main-input {
+  margin: 100px;
+}
+
+.notes {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
