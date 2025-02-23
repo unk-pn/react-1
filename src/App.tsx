@@ -30,14 +30,15 @@ const formatUser = (user: UserResType) => {
 // }
 
 function App() {
-  const [res, setRes] = useState<UserResType[] | null>(null);
+  const [res, setRes] = useState<UserResType[]>([]);
   const [search, setSearch] = useState('');
+  const filteredUsers = res.filter(i => search !== '' && i.userId === Number(search));
 
   const getUsers = async () => {
     fetch('https://jsonplaceholder.typicode.com/todos')
     .then((res) => res.json())
     .catch(() => new Promise((resolve) => {resolve({ a: 1 })}))
-    .then((data) => setRes(data.slice(0, 5)))
+    .then((data) => setRes(data))
     .finally(() => {})
   }
 
@@ -47,10 +48,15 @@ function App() {
   
   return (
     <>
-      <input type="number" value={search} onChange={(e) => {setSearch(e.currentTarget.value)}}/>
-
-      {res ? res.map((v) => formatUser(v)) : null}
-
+      <input
+        type="number"
+        placeholder='Enter user ID'
+        value={search}
+        onChange={(e) => {setSearch(e.target.value)}}
+      />
+      <div>
+        {filteredUsers.length > 0 ? (filteredUsers.map(formatUser)) : <p>No users found</p>}
+      </div>
     </>
   )
 }
