@@ -6,7 +6,6 @@ type UserResType = {
   userId: number,
   title: string,
   completed: boolean,
-
 }
 
 const formatUser = (user: UserResType) => {
