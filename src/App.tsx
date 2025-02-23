@@ -18,17 +18,13 @@ type UserResType = {
 
 const formatUser = (user: UserResType) => {
   return (
-    <ul
-    key={user.id}
-    className='main'
-    style={{backgroundColor: user.completed ? '#B9CEAC' : '#AB4E52'}}
+    <div
+      key={user.id}
+      className='note-item'
+      style={{backgroundColor: user.completed ? '#B9CEAC' : '#AB4E52'}}
     >
-      {/* <li><div>{user.userId}</div></li> */}
-      {/* <li><div>{user.id}</div></li> */}
-      <li><div>{user.title}</div></li>
-      {/* <li><div>{user.completed ? 'True' : 'False'}</div></li> */}
-      <br />
-    </ul>
+      <div className='note-content'>{user.title}</div>
+    </div>
   )
 }
 
