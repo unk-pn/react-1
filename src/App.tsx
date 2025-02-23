@@ -32,7 +32,6 @@ const formatUser = (user: UserResType) => {
   )
 }
 
-
 function App() {
   const [res, setRes] = useState<UserResType[]>([]);
   const [search, setSearch] = useState('');
