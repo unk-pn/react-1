@@ -18,10 +18,14 @@ type UserResType = {
 }
 
 const formatUser = (setRes, res, user: UserResType) => {
+  const clickNote = () => {
+    setRes()
+  }
+
   return (
     <div
       onClick={(e) => {
-        setRes();
+        clickNote()
       }}
       key={user.id}
       className='note-item'
