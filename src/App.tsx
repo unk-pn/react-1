@@ -17,9 +17,12 @@ type UserResType = {
   completed: boolean,
 }
 
-const formatUser = (user: UserResType) => {
+const formatUser = (setRes, res, user: UserResType) => {
   return (
     <div
+      onClick={(e) => {
+        setRes();
+      }}
       key={user.id}
       className='note-item'
       style={{backgroundColor: user.completed ? '#B9CEAC' : '#AB4E52'}}
@@ -60,7 +63,8 @@ function App() {
         className='main-input'
       />
       <div className='notes'>
-        {filteredUsers.length > 0 ? (filteredUsers.map(formatUser)) : <p>No users found</p>}
+        {filteredUsers.length > 0 ? (filteredUsers.map((value) => formatUser(setRes, res, value)))
+        : <p>No users found</p>}
       </div>
     </>
   )
