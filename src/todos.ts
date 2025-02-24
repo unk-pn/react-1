@@ -1,4 +1,4 @@
-[
+export const TODOS = [
     {
       "userId": 1,
       "id": 1,
