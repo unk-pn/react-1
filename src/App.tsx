@@ -5,8 +5,8 @@
 //   }
 //   return b;
 // }
-import { TODOS } from './todos';
 
+import { TODOS } from './todos';
 import { useEffect, useState } from 'react'
 import './App.css'
 
@@ -35,14 +35,14 @@ function App() {
   const filteredUsers = res.filter(i => search !== '' && i.userId === Number(search));
 
   const getUsers = async () => {
-    const response = new Promise((resolve, reject) => {
+    const response = new Promise((resolve) => {
         resolve(TODOS);
     })
     // fetch('https://jsonplaceholder.typicode.com/todos')
     response
-    .then((res) => res.json())
+    // .then((res) => res.json())
     .catch(() => new Promise((resolve) => {resolve({ a: 1 })}))
-    .then((data) => setRes(data))
+    .then((data) => setRes(data as unknown as UserResType[]))
     .finally(() => {})
   }
 

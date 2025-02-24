@@ -57,4 +57,5 @@ ul {
   flex-wrap: wrap;
   flex-direction: row;
   gap: 20px;
+  justify-content: center;
 }
