@@ -17,16 +17,18 @@ type UserResType = {
   completed: boolean,
 }
 
-const formatUser = (setRes, res, user: UserResType) => {
+const formatUser = (setRes: React.Dispatch<React.SetStateAction<UserResType[]>>, res: UserResType[], userPos: number, user: UserResType) => {
   const clickNote = () => {
-    setRes()
+    const resCopy = [...res];
+    const userCopy = {...user};
+    userCopy.completed = !userCopy.completed;
+    resCopy[userPos] = userCopy;
+    setRes(resCopy)
   }
 
   return (
     <div
-      onClick={(e) => {
-        clickNote()
-      }}
+      onClick={clickNote}
       key={user.id}
       className='note-item'
       style={{backgroundColor: user.completed ? '#B9CEAC' : '#AB4E52'}}
@@ -57,6 +59,11 @@ function App() {
     getUsers();
   }, [])
   
+  // const inputValidation = () => {
+  //   if () {
+  //   }
+  // }
+
   return (
     <>
       <input
@@ -65,9 +72,10 @@ function App() {
         value={search}
         onChange={(e) => {setSearch(e.target.value)}}
         className='main-input'
+        
       />
       <div className='notes'>
-        {filteredUsers.length > 0 ? (filteredUsers.map((value) => formatUser(setRes, res, value)))
+        {filteredUsers.length > 0 ? (filteredUsers.map((value, userPos) => formatUser(setRes, res, userPos, value)))
         : <p>No users found</p>}
       </div>
     </>
