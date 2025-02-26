@@ -8,7 +8,7 @@
 
 import { TODOS } from './todos';
 import { useEffect, useState } from 'react'
-import './App.css'
+import './App.css';
 
 type UserResType = {
   id: number,
