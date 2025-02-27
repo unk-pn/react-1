@@ -57,11 +57,6 @@ function App() {
   useEffect(() => {
     getUsers();
   }, [])
-  
-  // const inputValidation = () => {
-  //   if () {
-  //   }
-  // }
 
   return (
     <>
