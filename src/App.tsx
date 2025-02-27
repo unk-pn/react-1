@@ -8,6 +8,8 @@
 import { TODOS } from './todos';
 import { useEffect, useState } from 'react';
 import './App.css';
+import styles from './app.module.css';
+// import { clsx } from 'clsx';
 
 type UserResType = {
   id: number,
@@ -65,8 +67,7 @@ function App() {
         placeholder='Enter user ID'
         value={search}
         onChange={(e) => {setSearch(e.target.value)}}
-        className='main-input'
-        
+        className={styles.main_content}
       />
       <div className='notes'>
         {filteredUsers.length > 0 ? (filteredUsers.map((value, userPos) => formatUser(setRes, res, userPos, value)))
