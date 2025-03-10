@@ -3,6 +3,43 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: "DM Sans", sans-serif;
+  font-weight: bold;
+}
+
+.RT1 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+  background-color: rgb(103 232 249);
+  color: rgb(0 0 0);
+  overflow: hidden;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .RT1 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .RT1 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.RT2 {
+  overflow: hidden; 
+  padding-bottom: 0.125rem; 
 }
 
 .logo {

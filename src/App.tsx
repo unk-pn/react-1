@@ -5,6 +5,7 @@
 //   }
 //   return b;
 // }
+import { RotatingText } from './components';
 import { TODOS } from './todos';
 import { useEffect, useState } from 'react';
 import './App.css';
@@ -62,6 +63,18 @@ function App() {
 
   return (
     <>
+    <RotatingText
+      texts={['QWERT', 'QWERTY', 'РАЗВОЗИТ', 'САМОКАТЫ!']}
+      mainClassName="RT1"
+      staggerFrom={"last"}
+      initial={{ y: "100%" }}
+      animate={{ y: 0 }}
+      exit={{ y: "-120%" }}
+      staggerDuration={0.025}
+      splitLevelClassName="RT2"
+      transition={{ type: "spring", damping: 30, stiffness: 400 }}
+      rotationInterval={2000}
+    />
       <input
         type="number"
         placeholder='Enter user ID'
