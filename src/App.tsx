@@ -64,7 +64,7 @@ function App() {
   return (
     <>
     <RotatingText
-      texts={['QWERT', 'QWERTY', 'РАЗВОЗИТ', 'САМОКАТЫ!']}
+      texts={['Welcome', 'to', 'my', 'website!']}
       mainClassName="RT1"
       staggerFrom={"last"}
       initial={{ y: "100%" }}
